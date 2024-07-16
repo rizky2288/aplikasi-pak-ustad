@@ -1,0 +1,34 @@
+
+<script>
+    if($(".validity")){
+        nice('.validity')
+    }
+    if($(".timelimit")){
+        nice('.timelimit')
+    }
+
+    if($(".price")){
+        $(".price").html(rupiah(value));
+    }
+    
+    function nice(e){
+        var x =  $(e).html();
+        if(x.substring(x.length - 1) == "d"){
+            $(e).html(x.replace("d","Hari"));
+        }else if(x.substring(x.length - 1) == "h"){
+            $(e).html(x.replace("h","Jam"));
+        }else if(x.substring(x.length - 1) == "w"){
+            $(e).html(x.replace("w","Minggu"));
+        }
+    }
+
+    function rupiah(value){
+        let rupiahFormat = new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+        }).format(value);
+        return rupiahFormat;
+    }
+</script>
+</body>
+</html>
